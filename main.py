@@ -19,21 +19,19 @@ async def on_ready():
         channel = client.get_guild(int(guild_id)).get_channel(int(chat_channel_id))
 
         after_time = datetime(2021, 1, 1)
-        messages = await channel.history(after=after_time, limit=50).flatten()
+        messages = await channel.history(after=after_time, limit=100).flatten()
         num_of_message = len(messages)
 
-        if num_of_message < 50:
+        if num_of_message <= 50:
             break
 
-        await channel.purge(limit=50)
+        await channel.purge(oldest_first=True, limit=100)
 
         count += num_of_message
         print(f"{count} PROCESSED")
-
         await update_status(f"{count}개 삭제함!")
 
     await update_status(f"작업 마무리 / {count}개 삭제")
-
     now_time = (datetime.now() + timedelta(hours=9)).strftime("%Y-%m-%d %H:%M:%S")
 
     if count != 0:
@@ -49,5 +47,3 @@ async def update_status(message):
     await client.change_presence(status=discord.Status.online, activity=game)
 
 client.run(bot_token)
-
-
