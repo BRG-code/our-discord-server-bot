@@ -1,5 +1,6 @@
 import discord
 import datetime
+# import asyncio
 import os
 
 bot_token = os.environ.get("BOT_TOKEN")
@@ -12,30 +13,27 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    game = discord.Game("채널 정보를 수집 중")
+    count = 0
+    game = discord.Game(f"메시지 수집 중 / {count}개 삭제")
     await client.change_presence(status=discord.Status.online, activity=game)
     print("READY")
 
-    count = 0
     while count < 5000:
-        game = discord.Game(f"메시지 수집 중 / {count}개 삭제")
-        await client.change_presence(status=discord.Status.online, activity=game)
-
         channel = client.get_guild(int(guild_id)).get_channel(int(chat_channel_id))
 
         after_time = datetime.datetime(2021, 1, 1)
-        messages = await channel.history(after=after_time, limit=30).flatten()
+        messages = await channel.history(after=after_time, limit=100).flatten()
         num_of_message = len(messages)
 
-        if num_of_message <= 15:
+        if num_of_message <= 50:
             break
 
-        for i in messages:
-            await i.delete()
+        await channel.purge(limit=100)
 
-            count += 1
-            if count % 10 == 0:
-                print(f"{count} PROCESSED")
+        count += num_of_message
+        print(f"{count} PROCESSED")
+
+        if count % 500 == 0:
             game = discord.Game(f"{count}개 삭제함!")
             await client.change_presence(status=discord.Status.online, activity=game)
 
