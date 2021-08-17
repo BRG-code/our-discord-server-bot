@@ -38,4 +38,5 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          CHAT_CHANNEL_ID: ${{ secrets.CHAT_CHANNEL_ID }}
+          LOG_CHANNEL_ID: ${{ secrets.LOG_CHANNEL_ID }}
