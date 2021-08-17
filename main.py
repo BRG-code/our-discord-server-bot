@@ -2,9 +2,9 @@ import discord
 import datetime
 import os
 
-bot_token = os.getenv("BOT_TOKEN")
-guild_id = os.getenv("GUILD_ID")
-channel_id = os.getenv("CHANNEL_ID")
+bot_token = os.environ.get("BOT_TOKEN")
+guild_id = os.environ.get("GUILD_ID")
+channel_id = os.environ.get("CHANNEL_ID")
 
 client = discord.Client()
 
