@@ -5,7 +5,7 @@ import os
 bot_token = os.environ.get("BOT_TOKEN")
 guild_id = os.environ.get("GUILD_ID")
 channel_id = os.environ.get("CHANNEL_ID")
-print(f"bot_token: {bot_token}, guild_id: {guild_id}, channel_id: {channel_id}")
+
 client = discord.Client()
 
 
@@ -16,8 +16,7 @@ async def on_ready():
     print("READY")
 
     count = 0
-
-    while 1:
+    while count < 5000:
         channel = client.get_guild(int(guild_id)).get_channel(int(channel_id))
 
         after_time = datetime.datetime(2021, 1, 1)
@@ -42,7 +41,7 @@ async def on_ready():
 
     if count != 0:
         channel = client.get_guild(int(guild_id)).get_channel(int(channel_id))
-        msg = f"{now_time}에 메시지 {num_of_message} 개를 삭제하였습니다."
+        msg = f"{now_time}에 메시지 {count} 개를 삭제하였습니다."
         await channel.send(msg)
 
     await client.close()
