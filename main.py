@@ -42,6 +42,9 @@ async def on_ready():
                 game = discord.Game(f"{count}개 삭제함!")
                 await client.change_presence(status=discord.Status.online, activity=game)
 
+    game = discord.Game(f"작업 마무리 / {count}개 삭제")
+    await client.change_presence(status=discord.Status.online, activity=game)
+
     now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     if count != 0:
