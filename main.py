@@ -12,12 +12,15 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    game = discord.Game("봇 작동 중...")
+    game = discord.Game("채널 정보를 수집 중")
     await client.change_presence(status=discord.Status.online, activity=game)
     print("READY")
 
     count = 0
     while count < 5000:
+        game = discord.Game(f"메시지 수집 중 / {count}개 삭제")
+        await client.change_presence(status=discord.Status.online, activity=game)
+
         channel = client.get_guild(int(guild_id)).get_channel(int(chat_channel_id))
 
         after_time = datetime.datetime(2021, 1, 1)
