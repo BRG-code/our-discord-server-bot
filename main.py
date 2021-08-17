@@ -13,9 +13,9 @@ client = discord.Client()
 @client.event
 async def on_ready():
     count = 0
-    await update_status(f"메시지 수집 중 / {count}개 삭제")
 
     while count < 50000:
+        await update_status(f"메시지 수집 중 / {count}개 삭제함")
         channel = client.get_guild(int(guild_id)).get_channel(int(chat_channel_id))
 
         after_time = datetime(2021, 1, 1)
@@ -25,11 +25,11 @@ async def on_ready():
         if num_of_message <= 50:
             break
 
+        await update_status(f"삭제 중 / {count}개 삭제함")
         await channel.purge(oldest_first=True, limit=100)
 
         count += num_of_message
         print(f"{count} PROCESSED")
-        await update_status(f"{count}개 삭제함!")
 
     await update_status(f"작업 마무리 / {count}개 삭제")
     now_time = (datetime.now() + timedelta(hours=9)).strftime("%Y-%m-%d %H:%M:%S")
