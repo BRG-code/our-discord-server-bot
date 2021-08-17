@@ -27,7 +27,7 @@ async def on_ready():
 
         await channel.purge(limit=1)
 
-        count += num_of_message
+        count += 1
         print(f"{count} PROCESSED")
 
         await update_status(f"{count}개 삭제함!")
