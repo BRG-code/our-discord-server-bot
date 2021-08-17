@@ -25,7 +25,7 @@ async def on_ready():
         if num_of_message < 100:
             break
 
-        await channel.purge(limit=100)
+        await channel.purge(limit=1)
 
         count += num_of_message
         print(f"{count} PROCESSED")
