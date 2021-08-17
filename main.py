@@ -21,13 +21,12 @@ async def on_ready():
         channel = client.get_guild(int(guild_id)).get_channel(int(chat_channel_id))
 
         after_time = datetime.datetime(2021, 1, 1)
-        messages = await channel.history(after=after_time, limit=100).flatten()
+        messages = await channel.history(after=after_time, limit=30).flatten()
         num_of_message = len(messages)
 
-        if num_of_message <= 50:
+        if num_of_message <= 15:
             break
 
-        print(f"{len(messages)} START")
         for i in messages:
             if i.author.id == client.user.id:
                 num_of_message -= 1
