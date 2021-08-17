@@ -22,7 +22,7 @@ async def on_ready():
         messages = await channel.history(after=after_time, limit=100).flatten()
         num_of_message = len(messages)
 
-        if num_of_message <= 100:
+        if num_of_message < 100:
             break
 
         await channel.purge(limit=100)
