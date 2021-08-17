@@ -30,8 +30,7 @@ async def on_ready():
         count += num_of_message
         print(f"{count} PROCESSED")
 
-        if count % 300 == 0:
-            await update_status(f"{count}개 삭제함!")
+        await update_status(f"{count}개 삭제함!")
 
     await update_status(f"작업 마무리 / {count}개 삭제")
 
