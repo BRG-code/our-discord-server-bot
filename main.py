@@ -31,10 +31,7 @@ async def on_ready():
             break
 
         for i in messages:
-            if i.author.id == client.user.id:
-                num_of_message -= 1
-            else:
-                await i.delete()
+            await i.delete()
 
             count += 1
             if count % 10 == 0:
