@@ -5,7 +5,7 @@ import os
 bot_token = os.environ.get("BOT_TOKEN")
 guild_id = os.environ.get("GUILD_ID")
 channel_id = os.environ.get("CHANNEL_ID")
-
+print(f"bot_token: {bot_token}, guild_id: {guild_id}, channel_id: {channel_id}")
 client = discord.Client()
 
 
