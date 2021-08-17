@@ -36,8 +36,8 @@ async def on_ready():
             count += 1
             if count % 10 == 0:
                 print(f"{count} PROCESSED")
-                game = discord.Game(f"{count}개 삭제함!")
-                await client.change_presence(status=discord.Status.online, activity=game)
+            game = discord.Game(f"{count}개 삭제함!")
+            await client.change_presence(status=discord.Status.online, activity=game)
 
     game = discord.Game(f"작업 마무리 / {count}개 삭제")
     await client.change_presence(status=discord.Status.online, activity=game)
