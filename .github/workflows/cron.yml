@@ -2,7 +2,7 @@ name: Cron Job
 
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 18 */15 * *'
 
 jobs:
   cron:
