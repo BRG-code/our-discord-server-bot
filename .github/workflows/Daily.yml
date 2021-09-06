@@ -44,4 +44,5 @@ jobs:
         env:
           WEBHOOK_LIST: ${{ secrets.WEBHOOK_LIST }}
           WEBHOOK_USERNAME: ${{ secrets.WEBHOOK_USERNAME }}
+          WEBHOOK_AVATAR_URL: ${{ secrets.WEBHOOK_AVATAR_URL }}
           DATA_SOURCE: ${{ secrets.DATA_SOURCE }}
