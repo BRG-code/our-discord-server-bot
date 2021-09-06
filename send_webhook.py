@@ -9,17 +9,16 @@ def configure_data(island_data):
 
     embed_field_list = [i.__dict__ for i in island_data]
 
+    day = ['월', '화', '수', '목', '금', '토', '일']
+    title = now_time.strftime("%Y/%m/%d") + f" ({day[now_time.weekday()]})"
     if now_time.weekday() not in [5, 6]:
-        # 평일이면
-        title = now_time.strftime("%Y/%m/%d")
         appear_time_string = "11, 13, 19, 21, 23시"
     else:
-        # TODO: Need a Check
         if now_time.hour <= 13:
-            title = now_time.strftime("%Y/%m/%d") + " 오전"
+            title += " 오전"
             appear_time_string = "9, 11, 13시"
         else:
-            title = now_time.strftime("%Y/%m/%d") + " 오후"
+            title += " 오후"
             appear_time_string = "19, 21, 23시"
 
     embed_data = {
