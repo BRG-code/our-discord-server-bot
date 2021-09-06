@@ -42,12 +42,13 @@ jobs:
       - name: Preparing List
         run: |
           echo -n "${WEBHOOK_LIST}" | base64 --decode > ./webhook_list.txt
+        env:
+          WEBHOOK_LIST: ${{ secrets.WEBHOOK_LIST }}
 
       - name: Run Script
         run: |
           chmod +x ./doing.sh
           sh -c ./doing.sh
         env:
-          WEBHOOK_LIST: ${{ secrets.WEBHOOK_LIST }}
           WEBHOOK_USERNAME: ${{ secrets.WEBHOOK_USERNAME }}
           DATA_SOURCE: ${{ secrets.DATA_SOURCE }}
