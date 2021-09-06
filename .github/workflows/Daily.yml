@@ -48,6 +48,6 @@ jobs:
           chmod +x ./doing.sh
           sh -c ./doing.sh
         env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          WEBHOOK_LIST: ${{ secrets.WEBHOOK_LIST }}
           WEBHOOK_USERNAME: ${{ secrets.WEBHOOK_USERNAME }}
           DATA_SOURCE: ${{ secrets.DATA_SOURCE }}

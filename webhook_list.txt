@@ -1,0 +1,2 @@
+# 테스트 서버
+https://discord.com/api/webhooks/836827527888109569/EUohGW0Xf-UJC2gQX2wtfTFro1ZjuKDd5Xv4E1ebRIFOnDJeYx6ia56_rgI5g9DlJn37
