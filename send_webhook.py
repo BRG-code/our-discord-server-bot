@@ -1,5 +1,5 @@
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 import requests
 import json
 
@@ -45,10 +45,22 @@ def configure_data(island_data):
 
 def send_webhook(island_data):
     post_data = configure_data(island_data)
-    send_url = os.getenv("WEBHOOK_URL")
 
     header = {
         'Content-Type': 'application/json'
     }
 
-    requests.post(url=send_url, data=json.dumps(post_data), headers=header)
+    for i in configure_txt_file_to_list():
+        requests.post(url=i, data=json.dumps(post_data), headers=header)
+
+
+def configure_txt_file_to_list():
+    data = []
+    with open('webhook_list.txt', 'r') as f_in:
+        for line in f_in:
+            line = line.split('#', maxsplit=1)[0].strip()
+            if line:
+                data.append(line)
+
+    return data
+
