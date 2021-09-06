@@ -28,7 +28,7 @@ def configure_data(island_data):
         },
         'title': title,
         'description': f'출현 시간: {appear_time_string}',
-        'color': 15258703,
+        'color': 14177041,
         'fields': embed_field_list,
         'footer': {
             'text': now_time.strftime("%Y-%m-%d %H:%M") + " 기준"
@@ -37,6 +37,7 @@ def configure_data(island_data):
 
     post_data = {
         'username': os.getenv("WEBHOOK_USERNAME"),
+        'avatar_url': os.getenv('WEBHOOK_AVATAR_URL'),
         'embeds': [embed_data]
     }
 
