@@ -56,7 +56,7 @@ def send_webhook(island_data):
 
 def configure_txt_file_to_list():
     data = []
-    with open('webhook_list.txt', 'r') as f_in:
+    with open('webhook_list.txt', 'r', encoding='UTF8') as f_in:
         for line in f_in:
             line = line.split('#', maxsplit=1)[0].strip()
             if line:
