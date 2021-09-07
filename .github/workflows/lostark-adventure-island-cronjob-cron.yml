@@ -1,4 +1,4 @@
-name: Daily Job
+name: Lostark Adventure Island Cron Job
 
 on:
   schedule:
@@ -35,14 +35,14 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip3 install -r requirements.txt
+          pip3 install -r ./lostark-adventure-island-cronjob/requirements.txt
 
       - name: Run Script
         run: |
-          chmod +x ./doing.sh
-          sh -c ./doing.sh
+          chmod +x ./lostark-adventure-island-cronjob/doing.sh
+          sh -c ./lostark-adventure-island-cronjob/doing.sh
         env:
-          WEBHOOK_LIST: ${{ secrets.WEBHOOK_LIST }}
-          WEBHOOK_USERNAME: ${{ secrets.WEBHOOK_USERNAME }}
-          WEBHOOK_AVATAR_URL: ${{ secrets.WEBHOOK_AVATAR_URL }}
-          DATA_SOURCE: ${{ secrets.DATA_SOURCE }}
+          WEBHOOK_LIST: ${{ secrets.LOSTARK_WEBHOOK_LIST }}
+          WEBHOOK_USERNAME: ${{ secrets.LOSTARK_WEBHOOK_USERNAME }}
+          WEBHOOK_AVATAR_URL: ${{ secrets.LOSTARK_WEBHOOK_AVATAR_URL }}
+          DATA_SOURCE: ${{ secrets.LOSTARK_DATA_SOURCE }}

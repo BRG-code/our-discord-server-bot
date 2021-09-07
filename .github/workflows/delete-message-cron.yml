@@ -1,4 +1,4 @@
-name: Cron Job
+name: Delete Message Cron Job
 
 on:
   schedule:
@@ -28,13 +28,13 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip3 install -r requirements.txt
+          python3 -m pip install --upgrade pip
+          pip3 install -r ./delete-message-cron-job/requirements.txt
 
       - name: Run Script
-        run: python3 main.py
+        run: python3 ./delete-message-cron-job/main.py
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          GUILD_ID: ${{ secrets.GUILD_ID }}
-          CHAT_CHANNEL_ID: ${{ secrets.CHAT_CHANNEL_ID }}
-          LOG_CHANNEL_ID: ${{ secrets.LOG_CHANNEL_ID }}
+          BOT_TOKEN: ${{ secrets.DELETE_BOT_TOKEN }}
+          GUILD_ID: ${{ secrets.DELETE_GUILD_ID }}
+          CHAT_CHANNEL_ID: ${{ secrets.DELETE_CHAT_CHANNEL_ID }}
+          LOG_CHANNEL_ID: ${{ secrets.DELETE_LOG_CHANNEL_ID }}
