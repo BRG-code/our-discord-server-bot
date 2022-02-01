@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  delete-job:
+    image: ghcr.io/shin6949/message-delete-job:latest
+    container_name: discord_message_delete_job
+    environment:
+      # DISCORD BOT TOKEN
+      - "BOT_TOKEN=value"
+      # 삭제할 서버의 ID
+      - "GUILD_ID=value"
+      # 완료시 결과 메시지를 보낼 채널 ID
+      - "LOG_CHANNEL_ID=value"
+      # 메시지를 삭제할 채널 ID
+      - "CHAT_CHANNEL_ID=value"
+      # Timezone
+      - "TZ=Asia/Seoul"

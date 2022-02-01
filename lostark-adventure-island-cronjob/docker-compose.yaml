@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  lostark:
+    image: ghcr.io/shin6949/lostark-island-job:latest
+    container_name: lostark-island-job
+    environment:
+      # WEBHOOK 메시지의 USERNAME
+      - WEBHOOK_USERNAME=value
+      # WEBHOOK 메시지의 프로필 사진 URL
+      - WEBHOOK_AVATAR_URL=value
+      # 데이터 소스 URL
+      - DATA_SOURCE=value
+    volumes:
+      # 데이터를 보낼 WEBHOOK URL의 리스트를 개행으로 구분하여 저장
+      - ./webhook_list.txt:/app/webhook_list.txt

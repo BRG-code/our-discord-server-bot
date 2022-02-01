@@ -58,10 +58,7 @@ def send_webhook(island_data):
 
 def configure_txt_file_to_list():
     data = []
-    if os.path.exists('./lostark-adventure-island-cronjob/webhook_list.txt'):
-        path = './lostark-adventure-island-cronjob/webhook_list.txt'
-    else:
-        path = './webhook_list.txt'
+    path = '/app/webhook_list.txt'
 
     with open(path, 'r', encoding='UTF8') as f_in:
         for line in f_in:
